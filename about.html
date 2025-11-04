@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pooranam Naturals - About Us</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== RESET & BASE (from home.html) ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #1b1b1b;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== BACKGROUND (from home.html) ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: url('BG2.jpg') center/cover no-repeat;
+  filter: blur(5px);
+  opacity: 0.9;
+}
+
+/* ===== COLORS (from home.html) ===== */
+:root {
+  --green-dark: #0f4d1a;
+  --green-light: #4CAF50;
+  --accent: #FFD700;
+  --white: #ffffff;
+  --shadow-light: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-dark: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== NAVBAR (from home.html) ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 7%;
+  background: var(--green-light);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.logo i {
+  color: var(--white);
+}
+
+/* Desktop Nav */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.2rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a::after {
+   content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--white);
+  transition: width 0.5s ease;
+  border-radius: 5px;
+}
+nav a:hover {
+  color: var(--white);
+  
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+    color: var(--white);
+    font-weight: 600;
+}
+
+nav a.active::after {
+    width: 50%;
+}
+.contact-btn {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+.contact-btn:hover {
+  background: var(--green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+/* Mobile Nav Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--green-dark);
+  cursor: pointer;
+}
+
+
+/* ===== FOOTER (from home.html) ===== */
+footer {
+  background: var(--green-dark);
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  color: #FFF8E1;
+  position: relative;
+}
+.social-icons {
+  margin-bottom: 1.5rem;
+}
+.social-icons a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 0.75rem;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--accent);
+}
+footer p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: #FFF8E1;
+}
+.back-to-top {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--accent);
+  color: var(--green-dark);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.back-to-top:hover {
+  background: var(--white);
+  transform: scale(1.1);
+}
+
+/* ===== ANIMATIONS (from home.html) ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE (from home.html) ===== */
+@media (max-width: 992px) {
+  /* Product grid specific, not needed here but harmless */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+  /* Section padding, not used here but harmless */
+  .section {
+    padding: 3rem 5%;
+  }
+  /* Panel padding, not used here but harmless */
+  .content-panel-solid, .content-panel-glass {
+    padding: 2rem;
+  }
+
+  /* --- Mobile Nav --- */
+  .menu-toggle {
+    display: block;
+    z-index: 102;
+  }
+  .contact-btn {
+    display: none;
+  }
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 101;
+  }
+  nav ul.active {
+    right: 0;
+  }
+  nav a {
+    font-size: 1.2rem;
+  }
+  
+  /* Hero h1, not used here */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  /* About container, not used here */
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-content h2 {
+    text-align: center;
+  }
+
+  /* Product grid, not used here */
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Footer --- */
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+
+/* ===== PAGE-SPECIFIC STYLES (from about.html) ===== */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%; 
+  /* Added padding to clear fixed navbar and space at bottom */
+  padding: 8rem 1.5rem 4rem 1.5rem; 
+  gap: 2.5rem; 
+}
+
+
+main h2 {
+    color: var(--green-dark);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+main h3 {
+    color: var(--green-dark);
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+main p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: #333;
+}
+main p:last-of-type {
+    margin-bottom: 0;
+}
+main p strong {
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+
+.abt, .awd, .loc-section {
+    width: 100%; 
+    max-width: 1000px; /* Set a max-width for large screens */
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Adjust .abt to be narrower as it's just text */
+.abt {
+    max-width: 1000px;
+}
+
+.abt:hover, .awd:hover ,.loc-section:hover{
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+    transition: all 0.4s ease;
+}
+
+.awd_des {
+    display: flex;
+    flex-direction: column; /* Mobile-first: stack image on top of text */
+    align-items: center;
+    width: 100%;
+    gap: 2rem; /* Adds space between image and text block */
+}
+
+
+.awd_des img {
+    width: 100%;          /* Responsive width */
+    max-width: 500px;     /* Prevents it from getting too large */
+    height: auto;         /* Maintains aspect ratio */
+    border-radius: 12px;  /* Softer corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.awd_des div {
+    flex: 1; /* Allows the text div to grow */
+}
+
+
+@media (min-width: 800px) {
+    /* On desktop, show image and text side-by-side */
+    .awd_des {
+        flex-direction: row;
+        align-items: center; /* Vertically align image and text */
+        gap: 3rem;
+    }
+    
+    .awd_des img {
+        flex-basis: 450px; /* Give the image a base width */
+        margin-bottom: 0;
+    }
+
+    .awd_des div {
+        max-width: 100%; /* Allow text to fill remaining space */
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo"><i class="fa-solid fa-leaf"></i> Pooranam Naturals</div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="homepage.html#home">Home</a></li>
+      <li><a href="homepage.html#products">Products</a></li>
+      <li><a href="#" class="active">About Us</a></li>
+    </ul>
+  </nav>
+  <a href="homepage.html#contact" class="contact-btn">Contact Us</a>
+  <div class="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<main>
+    <div class="abt fade-in">
+        <h2>Our Story: Pure Tradition, Modern Convenience</h2>
+
+        <h3>The Purity of Our Oils</h3>
+        <p>
+            We produce our oils using a traditional wooden press (mara-chekku). 
+            Our press is unique, crafted from a Vagai wood pestle and a stone mortar. 
+            This "cold-press" method generates no heat. This is vital because 
+            it locks in 100% of the natural nutrients and vitamins from the seeds, 
+            giving your body only the best.
+        </p>
+
+        <h3>The Goodness of Our Rice</h3>
+        <p>
+            We believe in the power of our heritage rice, but we also know 
+            your time is precious. Traditionally, these rices require 6 hours 
+            of soaking. We've solved that. Our Ready Mix Items let you skip 
+            the long wait and prepare a healthy, traditional meal in just 15 minutes. 
+            At Pooranam, we make healthy eating simple, fast, and authentic.
+        </p>
+    </div>
+
+    <div class="awd fade-in">
+            <h2>Our Awards & Recognition</h2>
+            <div class="awd_des">
+                    <img src="awd.png" alt="Pooranam receiving an award for quality">
+                    <div>
+                    <p>
+                        We were deeply honored to receive the [Name of the Award] at the [Event Name] in [Year]. 
+                        To us, this award is more than just recognition—it is a celebration of our core values.
+                    </p>
+                    <p>
+                        It is a testament to our <strong>honest process</strong>: our commitment to never adding anything, 
+                        using only the traditional stone and wood press, and never compromising. 
+                        It is a validation of the <strong>purity</strong> that results from this process.
+                    <p>
+                        This honor inspires us to continue our work with integrity, ensuring that every
+                        product we make is as pure and honest as the one that won us this award.
+                    </p>
+                </div>
+            </div>
+    </div>
+
+    <div class="loc-section fade-in">
+        <h2>Our Location</h2>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d1959.589897052624!2d78.74179725413018!3d10.797537708538066!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d10.7979167!2d78.74180559999999!5e0!3m2!1sen!2sin!4v1762026828772!5m2!1sen!2sin"
+              width="100%" 
+              height="450" 
+              style="border:0; border-radius: 8px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>      
+        </div>
+    </div>
+
+  </main>
+
+<footer>
+  <div class="social-icons">
+    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/911234567890" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="footer-links">
+    <a href="homepage.html#home">Home</a>
+    <a href="#">About Us</a>
+    <a href="homepage.html#products">Products</a>
+    <a href="homepage.html#contact">Contact</a>
+  </div>
+  <p>© 2025 Pooranam Naturals | Taste the Tradition</p>
+  
+  <a href="#" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Mobile Nav Toggle ---
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        // Only close if it's not the active page link
+        if (link.getAttribute('href') !== '#') {
+          navLinks.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
+  }
+
+  // --- Scroll Animation ---
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1 // Triggers when 10% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // When it's in view, add the class
+        entry.target.classList.add('visible');
+      } else {
+        // When it's out of view, remove the class to reset it
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, observerOptions);
+
+  fadeInElements.forEach(el => {
+    observer.observe(el);
+  });
+
+});
+</script>
+</body>
+</html>
