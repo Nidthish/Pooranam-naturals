@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pooranam Naturals - Pure, Natural, Traditional</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #1b1b1b;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== BACKGROUND ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: url('BG2.jpg') center/cover no-repeat;
+  filter: blur(5px);
+  opacity: 0.9;
+}
+
+/* ===== COLORS ===== */
+:root {
+  --green-dark: #0f4d1a;
+  --green-light: #4CAF50;
+  --accent: #FFD700;
+  --white: #ffffff;
+  --shadow-light: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-dark: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 7%;
+  background: var(--green-light);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.logo i {
+  color: var(--white);
+}
+
+/* Desktop Nav */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.2rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a::after {
+   content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--white);
+  transition: width 0.5s ease;
+  border-radius: 5px;
+}
+nav a:hover {
+  color: var(--white);
+  
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+    color: var(--white);
+    font-weight: 600;
+}
+
+nav a.active::after {
+    width: 50%;
+}
+.contact-btn {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+}
+.contact-btn:hover {
+  background: var(--green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.7);
+}
+
+/* Mobile Nav Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--green-dark);
+  cursor: pointer;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 7rem 2rem 2rem;
+  text-align: center;
+}
+
+/* ===== NEW: CONTENT PANEL STYLES ===== */
+/* This is the "frosted glass" style */
+.content-panel-glass {
+  max-width: 900px;
+  width: 100%;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 25px;
+  box-shadow: var(--shadow-dark);
+  backdrop-filter: blur(6px);
+}
+/* This is the NEW solid white style for max readability */
+.content-panel-solid {
+  width: 100%;
+  max-width: 1200px; /* Wider for main content */
+  padding: 3rem;
+  background: var(--white);
+  border-radius: 25px;
+  box-shadow: var(--shadow-dark);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+.hero .cta-btn {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0.9rem 2.3rem;
+  font-weight: 600;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.hero .cta-btn:hover {
+  background: var(--green-light);
+  transform: scale(1.05);
+}
+
+/* ===== Reusable Section ===== */
+/* This is the "wrapper" for each section, holding the panel */
+.section {
+  padding: 4rem 7%; /* Reduced padding so panels are the focus */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.section-title {
+  font-size: 2.5rem;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto 3.5rem; /* This centers the element */
+  line-height: 1.7;
+  text-align: center; /* This centers the text inside */
+}
+
+/* ===== ABOUT SECTION ===== */
+/* Text is now on the solid panel, so it's perfectly readable */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  text-align: left;
+}
+.about-image {
+  flex: 1;
+}
+.about-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: var(--shadow-dark);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.about-content {
+  flex: 1.2;
+}
+.about-content h2 {
+  font-size: 2.2rem;
+  color: var(--green-dark);
+  margin-bottom: 1.5rem;
+}
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== "OUR METHOD" SECTION ===== */
+#our-method .content-panel-glass {
+  max-width: 1100px;
+}
+#our-method h2 {
+  font-size: 2.2rem;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+}
+#our-method p {
+  margin-bottom: 0;
+  color: #444;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+#our-method strong {
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+/* ===== "PRODUCTS" SECTION ===== */
+/* Section titles are now inside the solid panel */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+}
+.product-card {
+  background: var(--white);
+  border: 2px solid #eee; /* Added subtle border */
+  border-radius: 15px;
+  box-shadow:  0px 5px 10px var(--shadow-dark);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-dark);
+}
+.product-card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+.product-card-content {
+  padding: 1.5rem;
+}
+.product-card h3 {
+  font-size: 1.4rem;
+  color: var(--green-dark);
+  margin-bottom: 0.5rem;
+}
+.product-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.product-card .btn {
+  display: inline-block;
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.product-card .btn:hover {
+  background: var(--green-light);
+}
+
+/* ===== CONTACT SECTION ===== */
+/* Title and cards are now on a solid white panel */
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+}
+.contact-card {
+  background: #f9f9f9; /* Light gray background to pop from white */
+  border: 1px solid #eee;
+  flex: 1 1 280px;
+  max-width: 340px;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.contact-card a {
+  text-decoration: none;
+  color: #2E2E2E;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-dark);
+}
+.contact-card i {
+  font-size: 2.5rem;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+}
+.contact-card h4 {
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin-bottom: 0.4rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--green-dark);
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  color: #FFF8E1;
+  position: relative;
+}
+.social-icons {
+  margin-bottom: 1.5rem;
+}
+.social-icons a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 0.75rem;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--accent);
+}
+footer p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: #FFF8E1;
+}
+.back-to-top {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--accent);
+  color: var(--green-dark);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.back-to-top:hover {
+  background: var(--white);
+  transform: scale(1.1);
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+  .section {
+    padding: 3rem 5%; /* Adjusted padding */
+  }
+  .content-panel-solid, .content-panel-glass {
+    padding: 2rem;
+  }
+
+  /* --- Mobile Nav --- */
+  .menu-toggle {
+    display: block;
+    z-index: 102;
+  }
+  .contact-btn {
+    display: none;
+  }
+  nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 101;
+  }
+  nav ul.active {
+    right: 0;
+  }
+  nav a {
+    font-size: 1.2rem;
+  }
+  
+  /* --- Hero --- */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  /* --- About --- */
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-content h2 {
+    text-align: center;
+  }
+
+  /* --- Products --- */
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Footer --- */
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo"><i class="fa-solid fa-leaf"></i> Pooranam Naturals</div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+  <a href="#contact" class="contact-btn">Contact Us</a>
+  <div class="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div class="content-panel-glass fade-in">
+    <h1>Pure, Natural, and Traditionally Made</h1>
+    <p>Experience purity through every drop and every grain — cold-pressed, chemical-free, and crafted with care.</p>
+    <a href="#products" class="cta-btn">Shop Our Products</a>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="content-panel-solid fade-in">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="pooranam.png" alt="Traditional wooden press">
+      </div>
+      <div class="about-content">
+        <h2>About Pooranam Naturals</h2>
+        <p>Welcome to Pooranam Naturals, where tradition meets purity. We are a family-run business dedicated to providing you with the highest quality, cold-pressed oils, just as nature intended.</p>
+        <p>Our journey began with a simple belief: what we put into our bodies should be pure and unadulterated. We use the traditional <em>marachekku</em> (wooden press) method, ensuring that every bottle retains its full nutritional value, natural aroma, and authentic taste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="our-method" class="section">
+  <div class="content-panel-glass fade-in">
+    <h2>Our Method: The <em>Marachekku</em> Promise</h2>
+    <h2>Kattur, Trichy 19</h2>
+    <p>All our oils are extracted using the traditional <strong>marachekku</strong> (wooden cold-press) method that retains all natural nutrients and purity.
+    No chemicals or preservatives are added — just pure, traditional goodness. Ideal for people with diabetes and health-conscious families.</p>
+  </div>
+</section>
+
+<section id="products" class="section">
+  <div class="content-panel-solid fade-in">
+    <h2 class="section-title">Our Natural Products</h2>
+    <p class="section-subtitle">Taste the difference that purity makes. Our oils are 100% natural, single-press, and free from any additives.</p>
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="gingelly_oil.png" alt="Cold-Pressed Gingelly Oil">
+        <div class="product-card-content">
+          <h3>Cold-Pressed Gingelly Oil</h3>
+          <p>Rich in antioxidants and full of nutty flavor, our gingelly (sesame) oil is perfect for cooking and oil pulling.</p>
+          <a href="#contact" class="btn">Enquire Now</a>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <img src="goundnet oil.png" alt="Cold-Pressed Groundnut Oil">
+        <div class="product-card-content">
+          <h3>Cold-Pressed Groundnut Oil</h3>
+          <p>With a high smoke point and rich, nutty aroma, this is the ideal, healthy choice for all your frying and sautéing needs.</p>
+          <a href="#contact" class="btn">Enquire Now</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="coconut oil.png" alt="Virgin Coconut Oil">
+        <div class="product-card-content">
+          <h3>Virgin Coconut Oil</h3>
+          <p>Extracted from fresh coconut milk, our virgin oil is perfect for skin, hair, and healthy, flavorful cooking.</p>
+          <a href="#contact" class="btn">Enquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="content-panel-solid fade-in">
+    <h2 class="section-title">Let's Get In Touch</h2>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <a href="https://maps.app.goo.gl/23SL3FBtK8Pmd8JcA" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Location</h4>
+          <p>Kattur, Trichy 19</p>
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <a href="mailto:asirumalar12@gmail.com">
+          <i class="fas fa-envelope"></i>
+          <h4>Email</h4>
+          <p>asirumalar12@gmail.com</p>
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <a href="https://wa.me/911234567890" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+          <h4>WhatsApp</h4>
+          <p>Chat with us directly</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social-icons">
+    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/911234567890" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p>© 2025 Pooranam Naturals | Taste the Tradition</p>
+  <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Mobile Nav Toggle ---
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
+  }
+
+  // --- Scroll Animation ---
+  const fadeInElements = document.querySelectorAll('.fade-in');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1 // Triggers when 10% of the element is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // When it's in view, add the class
+        entry.target.classList.add('visible');
+      } else {
+        // When it's out of view, remove the class to reset it
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, observerOptions);
+
+  fadeInElements.forEach(el => {
+    observer.observe(el);
+  });
+
+});
+</script>
+</body>
+</html>
