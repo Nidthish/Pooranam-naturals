@@ -58,18 +58,15 @@ Pooranam-naturals/
 ├── index.html
 ├── products.html
 ├── about.html
-├── contact.html
 │
 ├── css/
 │   └── style.css
-│   └── responsive.css
 │
 ├── js/
 │   └── main.js
 │
-└── assets/
-    ├── images/
-    └── icons/
+├── images
+└── icons
 </pre>
 
 <hr style="margin:25px 0;">
