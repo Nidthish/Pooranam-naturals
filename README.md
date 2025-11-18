@@ -50,15 +50,6 @@ Icons (FontAwesome / Material Icons) <br>
 
 <hr style="margin:25px 0;">
 
-<!-- SCREENSHOTS -->
-<ul>
-  <li><code>![Homepage](https://tanyaanandakrishnan.github.io/poorna/)</code></li>
-  <li><code>![Products Section](https://tanyaanandakrishnan.github.io/poorna/products.html)</code></li>
-  <li><code>![Responsive Mobile View](https://tanyaanandakrishnan.github.io/poorna/about.html)</code></li>
-</ul>
-
-<hr style="margin:25px 0;">
-
 <!-- FILE STRUCTURE -->
 <h2 style="color:#43a047;">📁 File Structure</h2>
 <pre style="background:#1e1e1e; color:#eee; padding:15px; border-radius:8px; font-size:14px;">
