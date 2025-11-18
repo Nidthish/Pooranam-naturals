@@ -51,11 +51,10 @@ Icons (FontAwesome / Material Icons) <br>
 <hr style="margin:25px 0;">
 
 <!-- SCREENSHOTS -->
-<h2 style="color:#43a047;">🖼 Screenshots (Add Later)</h2>
 <ul>
-  <li><code>![Homepage](link)</code></li>
-  <li><code>![Products Section](link)</code></li>
-  <li><code>![Responsive Mobile View](link)</code></li>
+  <li><code>![Homepage](https://tanyaanandakrishnan.github.io/poorna/)</code></li>
+  <li><code>![Products Section](https://tanyaanandakrishnan.github.io/poorna/products.html)</code></li>
+  <li><code>![Responsive Mobile View](https://tanyaanandakrishnan.github.io/poorna/about.html)</code></li>
 </ul>
 
 <hr style="margin:25px 0;">
@@ -124,7 +123,6 @@ Pooranam-naturals/
 <h2 style="color:#43a047;">👥 Team</h2>
 <ul style="margin-left:20px;">
   <li><strong>Nidthish</strong> — Front-end development & UI planning</li>
-  <li>Your team mates — Write roles here</li>
   <li>Women Entrepreneurs — Original product creators</li>
 </ul>
 
@@ -134,8 +132,8 @@ Pooranam-naturals/
 <h2 style="color:#43a047;">📞 Contact</h2>
 <p>
 GitHub Repo:  
-<a href="https://github.com/Nidthish/Pooranam-naturals" style="color:#1e88e5;">
-https://github.com/Nidthish/Pooranam-naturals
+<a href="https://tanyaanandakrishnan.github.io/poorna/index.html#" style="color:#1e88e5;">
+Pooranam naturals
 </a>
 </p>
 
