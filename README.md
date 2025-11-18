@@ -113,6 +113,7 @@ Pooranam-naturals/
 <!-- TEAM -->
 <h2 style="color:#43a047;">👥 Team</h2>
 <ul style="margin-left:20px;">
+  <li><strong>Saranathan Consultancy Team<strong></strong></li>
   <li><strong>Nidthish</strong> — Front-end development & UI planning</li>
   <li>Women Entrepreneurs — Original product creators</li>
 </ul>
